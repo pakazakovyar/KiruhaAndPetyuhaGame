@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://bp2ahuxi7q5bl"]
+
+[ext_resource type="Script" path="res://Scripts/levels.gd" id="1_lhay1"]
+[ext_resource type="Texture2D" uid="uid://t5u72a8j0wnw" path="res://Assets/Images/1678775429_sneg-top-p-zagadochnii-les-oboi-61.jpg" id="1_u74u4"]
+[ext_resource type="Script" path="res://Scripts/Level1.gd" id="2_hiuie"]
+
+[node name="Levels" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_lhay1")
+
+[node name="1678775429Sneg-top-p-zagadochnii-les-oboi-61" type="Sprite2D" parent="."]
+position = Vector2(960, 540)
+scale = Vector2(0.695652, 0.639053)
+texture = ExtResource("1_u74u4")
+
+[node name="Level1" type="Button" parent="1678775429Sneg-top-p-zagadochnii-les-oboi-61"]
+offset_left = -1184.0
+offset_top = -532.0
+offset_right = -1023.0
+offset_bottom = -357.0
+theme_override_font_sizes/font_size = 100
+text = "1"
+script = ExtResource("2_hiuie")
+
+[node name="Level2" type="Button" parent="1678775429Sneg-top-p-zagadochnii-les-oboi-61"]
+offset_left = -908.5
+offset_top = -532.037
+offset_right = -747.5
+offset_bottom = -357.037
+
+[connection signal="pressed" from="1678775429Sneg-top-p-zagadochnii-les-oboi-61/Level1" to="." method="_on_level_1_pressed"]
