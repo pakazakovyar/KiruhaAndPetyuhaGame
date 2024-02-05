@@ -1,23 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dio3m7bd18s5b"]
+[gd_scene load_steps=9 format=3 uid="uid://dio3m7bd18s5b"]
 
 [ext_resource type="Script" path="res://Scripts/CharacterBody3D.gd" id="1_htlgg"]
 [ext_resource type="PackedScene" uid="uid://cwmx1i3ju1m8d" path="res://Nodes/HealthBar.tscn" id="2_7jb5n"]
-
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8a0iv"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_yxaax"]
+[ext_resource type="PackedScene" uid="uid://due5xgh3wk8ov" path="res://Nodes/Dash.tscn" id="2_lr2sc"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vy37s"]
 
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yxaax"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_x40d5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wfqg6"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_8a0iv"]
+
 [node name="CharacterBody3D" type="CharacterBody3D"]
 script = ExtResource("1_htlgg")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-shape = SubResource("CapsuleShape3D_8a0iv")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-mesh = SubResource("CapsuleMesh_yxaax")
-skeleton = NodePath("../CollisionShape3D")
 
 [node name="Area3D" type="Area3D" parent="."]
 
@@ -29,3 +27,30 @@ shape = SubResource("CapsuleShape3D_vy37s")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 8.37978, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = SubResource("CapsuleMesh_yxaax")
+skeleton = NodePath("../CollisionShape3D")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="MeshInstance3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1.35035)
+mesh = SubResource("BoxMesh_x40d5")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="MeshInstance3D/MeshInstance3D2"]
+shape = SubResource("BoxShape3D_wfqg6")
+
+[node name="CPUParticles3D" parent="MeshInstance3D" instance=ExtResource("2_lr2sc")]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, -0.512517)
+emitting = false
+amount = 100
+lifetime = 0.3
+gravity = Vector3(0, 0, -35.67)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_8a0iv")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

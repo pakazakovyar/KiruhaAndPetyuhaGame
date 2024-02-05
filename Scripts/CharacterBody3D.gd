@@ -9,6 +9,9 @@ var gravity = 30
 var health = 5
 var dam = 1
 @onready var healthbar = $HealthBar
+@onready var mesh = $MeshInstance3D
+@onready var parts = $MeshInstance3D/CPUParticles3D
+@onready var timer = $Timer
 
 func _ready():
 	health = 5
@@ -22,18 +25,28 @@ func _physics_process(delta):
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
-
+	
+	
+		
 
 	var input_dir = Input.get_vector("up", "down", "right", "left")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+	if Input.is_action_just_pressed("left"):
+		mesh.rotation.y = 0
+	if Input.is_action_just_pressed("right"):
+		mesh.rotation.y = 190 * delta
 	if direction:
 		velocity.z = direction.z * SPEED
 	else:
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	if Input.is_action_just_pressed("shift"):
 		velocity.z = direction.z * 20 * SPEED
+		parts.emitting = true
+		parts.gravity.z = direction.z
 	elif Input.is_action_pressed("shift"):
 		velocity.z = direction.z * 2 * SPEED
+	if Input.is_action_just_released("shift"):
+		parts.emitting = false
 	move_and_slide()
 	
 func _change_health(value):
@@ -43,3 +56,7 @@ func _change_health(value):
 
 func die():
 	get_tree().change_scene_to_file("res://Levels/level.tscn")
+
+	
+
+

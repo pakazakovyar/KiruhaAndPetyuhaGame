@@ -1,0 +1,29 @@
+[gd_scene load_steps=4 format=3 uid="uid://due5xgh3wk8ov"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8xjgo"]
+transparency = 1
+albedo_color = Color(1, 1, 1, 0.188235)
+emission_enabled = true
+emission = Color(1, 1, 1, 1)
+emission_energy_multiplier = 4.95
+normal_scale = -3.14
+backlight = Color(0.945098, 0, 0.572549, 1)
+refraction_scale = 1.0
+grow_amount = 0.06
+
+[sub_resource type="TorusMesh" id="TorusMesh_25ie2"]
+material = SubResource("StandardMaterial3D_8xjgo")
+inner_radius = 0.374
+outer_radius = 0.415
+
+[sub_resource type="Curve" id="Curve_407e7"]
+max_value = 2.0
+_data = [Vector2(0.106742, 1.6044), 0.0, -2.00891, 0, 0, Vector2(0.483146, 1.07692), -2.01914, -2.01914, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[node name="CPUParticles3D" type="CPUParticles3D"]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, 0, 0, 0)
+amount = 25
+mesh = SubResource("TorusMesh_25ie2")
+gravity = Vector3(15.09, 0, 0)
+scale_amount_curve = SubResource("Curve_407e7")

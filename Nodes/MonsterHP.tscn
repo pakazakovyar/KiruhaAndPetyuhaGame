@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://fkd83tjvakk8"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i8lui"]
+bg_color = Color(0.709804, 0.0313726, 0, 1)
+
+[node name="Sprite3D" type="Sprite3D"]
+
+[node name="ProgressBar" type="ProgressBar" parent="."]
+offset_right = 140.0
+offset_bottom = 27.0
+theme_override_styles/fill = SubResource("StyleBoxFlat_i8lui")
+step = 1.0
+value = 80.0
+show_percentage = false

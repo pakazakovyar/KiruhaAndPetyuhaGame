@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://yavpi7dyf8fs"
-path="res://.godot/imported/wooden-and-gold-buttons-for-ui-game_107791-5095.png-64d2b9dd095754868a69a2e62168f9ff.ctex"
+path="res://.godot/imported/button.png-ca4317eb5321dd769764e5997c12e54c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/wooden-and-gold-buttons-for-ui-game_107791-5095.png"
-dest_files=["res://.godot/imported/wooden-and-gold-buttons-for-ui-game_107791-5095.png-64d2b9dd095754868a69a2e62168f9ff.ctex"]
+source_file="res://Assets/Images/button.png"
+dest_files=["res://.godot/imported/button.png-ca4317eb5321dd769764e5997c12e54c.ctex"]
 
 [params]
 

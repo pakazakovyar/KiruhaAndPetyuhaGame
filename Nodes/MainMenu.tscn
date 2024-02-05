@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3 uid="uid://bfxn5ci1mcw4r"]
 
-[ext_resource type="Script" path="res://Nodes/MainMenu.gd" id="1_p21ht"]
+[ext_resource type="Script" path="res://Scripts/MainMenu.gd" id="1_p21ht"]
 [ext_resource type="Texture2D" uid="uid://t5u72a8j0wnw" path="res://Assets/Images/1678775429_sneg-top-p-zagadochnii-les-oboi-61.jpg" id="2_ld0je"]
-[ext_resource type="Texture2D" uid="uid://yavpi7dyf8fs" path="res://Assets/Images/wooden-and-gold-buttons-for-ui-game_107791-5095.png" id="3_t84ga"]
+[ext_resource type="Texture2D" uid="uid://yavpi7dyf8fs" path="res://Assets/Images/button.png" id="3_t84ga"]
 
 [node name="Control" type="Control"]
 layout_mode = 3
@@ -33,6 +33,7 @@ scale = Vector2(6.68437, 7.50856)
 texture = ExtResource("3_t84ga")
 
 [node name="QuitButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 111.0
 offset_top = 847.0
 offset_right = 399.0
@@ -41,6 +42,7 @@ theme_override_font_sizes/font_size = 50
 text = "Quit"
 
 [node name="PlayButton" type="Button" parent="."]
+layout_mode = 0
 offset_left = 103.0
 offset_top = 551.0
 offset_right = 399.0
