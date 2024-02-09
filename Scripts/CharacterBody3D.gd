@@ -48,11 +48,9 @@ func _physics_process(delta):
 		parts.gravity.z = direction.z
 	elif Input.is_action_pressed("shift"):
 		velocity.z = direction.z * 2 * SPEED
-		anim.play("fastrun")
 	if Input.is_action_just_released("shift"):
 		parts.emitting = false
 	move_and_slide()
-	
 	
 func _change_health(value):
 	healthbar.health -= value
@@ -61,7 +59,5 @@ func _change_health(value):
 
 func die():
 	get_tree().change_scene_to_file("res://Levels/level.tscn")
-
-	
 
 

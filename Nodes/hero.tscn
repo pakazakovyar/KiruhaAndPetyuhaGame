@@ -1,8 +1,8 @@
 [gd_scene load_steps=2 format=3 uid="uid://i4fl286bdox6"]
 
-[ext_resource type="PackedScene" uid="uid://wh4pdub4el8l" path="res://Assets/Models/hero.glb" id="1_oe6lg"]
+[ext_resource type="PackedScene" uid="uid://wh4pdub4el8l" path="res://Assets/Models/hero.glb" id="1_j1bgl"]
 
-[node name="hero" instance=ExtResource("1_oe6lg")]
+[node name="hero" instance=ExtResource("1_j1bgl")]
 
 [node name="Skeleton3D" parent="Armature" index="0"]
 bones/0/position = Vector3(-0.0661665, 3.52585, -86.7808)
